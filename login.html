@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Realestae</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'home.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+</head>
+<body>
+<div class="header">
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="/">
+            <img src="{%static 'image/logo.jpg'%}" width="125px"></a>
+        </div>
+        <nav>
+            <ul id="menuitem">
+                <li class="active"><a href="/"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a href=""><i class="fa fa-search"></i>Find Property<i class="fa fa-sort-down"></i></a>
+                 <div class="sub-menu">
+                     <a href="sell"><i class="fa fa-shopping-cart"></i>Sell</a>
+                     <a href="buy"><i class="fa fa-shopping-cart"></i>Buy</a>
+                     <a href=""><i class="fa fa-shopping-cart"></i>ashish</a>
+                </div>
+                </li>
+                <li><a href=""><i class="fa fa-fw fa-wrench"></i>Our Services</a></li>
+                <li><a href=""><i class="fa fa-comments-o"></i>Feedback</a></li>
+                <li><a href=""><i class="fa fa-question-circle"></i>Help</a></li>
+                <li><a href="logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+                <li><a href="login" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-fw fa-user"></i>Login/Signup</a></li>
+
+            </ul>
+        </nav>
+            <img src="{%static 'image/menu-logo.png'%}" class="menu-icon" onclick="menutoggle()">
+    </div>
+</div>
+</div>
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <h1>Login</h1>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">New User? <a href="#">SignUp here</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

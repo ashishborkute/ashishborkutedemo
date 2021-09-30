@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Home Build_Ur Dream</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'register.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+</head>
+<body>
+<div class="header">
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="/">
+            <img src="{%static 'images/logo.jpg'%}" width="125px"></a>
+        </div>
+        <nav>
+            <ul id="menuitem">
+                <li ><a href="/"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a href=""><i class="fa fa-search"></i>Find Property<i class="fa fa-sort-down"></i></a>
+                 <div class="sub-menu">
+                     <a href="selled"><i class="fa fa-shopping-cart"></i>Sell</a>
+                     <a href="buy"><i class="fa fa-shopping-cart"></i>Buy</a>
+                     <a href="rented"><i class="fa fa-shopping-cart"></i>Rental</a>
+                </div>
+                </li>
+                <li><a href=""><i class="fa fa-fw fa-wrench"></i>Our Services</a></li>
+                <li><a href="feedback1"><i class="fa fa-comments-o"></i>Feedback</a></li>
+                <li><a href="index"><i class="fa fa-image"></i>Gallery</a></li>
+                <li><a href=""><i class="fa fa-question-circle"></i>Help</a></li>
+                 {% if user.is_authenticated %}
+                <li><h5 style="align-item: center">welcome {{ user.username }}</h5></li>
+                <li><a href="logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+                {% else %}
+                <li><a href="#" onclick="document.getElementById('id011').style.display='block'"><i class="fa fa-fw fa-user"></i>Login/Signup</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <img src="https://source.unsplash.com/user/erondu/1600x700" alt="remote image">
+                <div class="column_1">
+                    <h3>Things you Can Do with<br>RealEstate Account</h3>
+                    <ul>
+                        <li>Post one Single Property for FREE</li>
+                        <li>Set property alerts for your requirement </li>
+                        <li>Get accessed by over 1 Lakh buyers </li>
+                        <li>Showcase your property as Rental, PG or for Sale</li>
+                        <li>Get instant queries over Phone, Email and SMS</li>
+                        <li>Performance in search &amp; Track responses &amp; views online </li>
+                        <li>Add detailed property information &amp; multiple photos per listing</li>
+                    </ul>
+                </div>
+                <div class="column_2">
+
+    <form class="box" action="registration" method="post">
+    <h1>Sign Up</h1>
+        {% csrf_token %}
+        <input type="text" name="firstname" placeholder="First Name" required autocomplete="off">
+        <input type="text"  name="lastname" placeholder="Last Name" required autocomplete="off">
+        <input type="text" name="username" placeholder="Username" required autocomplete="off">
+        <input type="text" name="email" placeholder="Email Id" required autocomplete="off">
+        <input type="text" name="contactno" placeholder="Contact No." required autocomplete="off">
+        <input type="password" name="password" placeholder="password" required>
+        <input  type="Submit"  value="Sign Up" name="save">
+        {% if messages %}
+        {% for message in messages %}
+        <h5>{{message}}</h5>
+        {% endfor %}
+        {% endif %}
+        <h4><a href="login">Already Customer? Login</a></h4>
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!------footer---->
+<div class="footer">
+    <div class="container1">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and iod mobile phone</p>
+                <div class="app-logo">
+                    <img src="{%static 'images/GetItOnGooglePlay.png'%}" >
+                    <img src="{%static 'images/appstore.png'%}" >
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="{%static 'images/logo1.jpg'%}" width="150px">
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupen</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2021 - Home Build_Ur Dream Site</p>
+    </div>
+
+</div>
+    </div>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
